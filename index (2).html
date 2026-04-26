@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaishali Dulani — Paid Media Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0a0b0c;
+  --surface:#111213;
+  --surface2:#171819;
+  --border:#222426;
+  --border2:#2e3033;
+  --accent:#c8ff57;
+  --accent2:#a8e040;
+  --text:#e6e7e8;
+  --muted:#64666b;
+  --muted2:#3e4044;
+  --info:#57b8ff;
+  --coral:#ff7c5c;
+  --mono:'DM Mono',monospace;
+  --serif:'Instrument Serif',serif;
+  --sans:'DM Sans',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(10,11,12,0.85);backdrop-filter:blur(12px)}
+.nav-logo{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:0.06em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{font-family:var(--mono);font-size:11px;color:#0a0b0c;background:var(--accent);padding:6px 14px;border-radius:4px;text-decoration:none;letter-spacing:0.04em;transition:background 0.15s}
+.nav-cta:hover{background:var(--accent2)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px 64px;position:relative;overflow:hidden}
+
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;opacity:0.3}
+.hero-glow{position:absolute;top:-200px;right:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(200,255,87,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-100px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(87,184,255,0.04) 0%,transparent 70%);pointer-events:none}
+
+.hero-tag{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeup 0.8s 0.2s forwards}
+.hero-name{font-family:var(--serif);font-size:clamp(52px,8vw,96px);line-height:0.95;color:var(--text);margin-bottom:16px;opacity:0;animation:fadeup 0.8s 0.35s forwards}
+.hero-name em{font-style:italic;color:var(--accent)}
+.hero-title{font-size:16px;color:var(--muted);max-width:480px;margin-bottom:40px;opacity:0;animation:fadeup 0.8s 0.5s forwards;line-height:1.5}
+.hero-stats{display:flex;gap:40px;opacity:0;animation:fadeup 0.8s 0.65s forwards}
+.hero-stat-value{font-family:var(--serif);font-size:36px;font-style:italic;color:var(--text);line-height:1}
+.hero-stat-label{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px}
+
+.hero-links{position:absolute;bottom:64px;right:40px;display:flex;flex-direction:column;gap:10px;align-items:flex-end;opacity:0;animation:fadeup 0.8s 0.8s forwards}
+.hero-link{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:0.06em;display:flex;align-items:center;gap:8px;transition:color 0.15s}
+.hero-link:hover{color:var(--accent)}
+.hero-link::before{content:'↗';opacity:0;transition:opacity 0.15s}
+.hero-link:hover::before{opacity:1}
+
+@keyframes fadeup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTIONS ── */
+section{padding:80px 40px;border-top:1px solid var(--border)}
+.section-label{font-family:var(--mono);font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:40px;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-headline{font-family:var(--serif);font-size:clamp(28px,4vw,48px);line-height:1.15;font-style:italic;color:var(--text)}
+.about-headline em{color:var(--accent);font-style:normal}
+.about-body{font-size:15px;color:var(--muted);line-height:1.75}
+.about-body p{margin-bottom:16px}
+.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{font-family:var(--mono);font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:4px;color:var(--muted);letter-spacing:0.04em}
+
+/* ── IMPACT ── */
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.impact-card{background:var(--bg);padding:32px 24px}
+.impact-card:hover{background:var(--surface)}
+.impact-num{font-family:var(--serif);font-size:clamp(36px,4vw,52px);font-style:italic;color:var(--text);line-height:1;margin-bottom:8px}
+.impact-num span{color:var(--accent)}
+.impact-desc{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* ── EXPERIENCE ── */
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:36px 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-meta{padding-top:4px}
+.exp-date{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em;margin-bottom:8px}
+.exp-company{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:0.04em}
+.exp-location{font-family:var(--mono);font-size:11px;color:var(--muted2);margin-top:4px}
+.exp-role{font-family:var(--serif);font-size:22px;font-style:italic;color:var(--text);margin-bottom:16px}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp-list li{font-size:14px;color:var(--muted);padding-left:16px;position:relative;line-height:1.6}
+.exp-list li::before{content:'—';position:absolute;left:0;color:var(--muted2)}
+.exp-list li strong{color:var(--text);font-weight:500}
+
+/* ── TOOLS ── */
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.tools-cat{background:var(--bg);padding:28px 24px}
+.tools-cat-label{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px}
+.tools-items{display:flex;flex-wrap:wrap;gap:6px}
+.tool-tag{font-family:var(--mono);font-size:11px;padding:3px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:3px;color:var(--muted);transition:border-color 0.15s,color 0.15s}
+.tool-tag:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── CASE STUDIES ── */
+.case-grid{display:flex;flex-direction:column;gap:2px}
+.case-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color 0.2s}
+.case-card:hover{border-color:var(--border2)}
+.case-card.open{border-color:var(--accent)}
+.case-header{padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.case-header-left{display:flex;align-items:center;gap:20px;flex:1}
+.case-num{font-family:var(--mono);font-size:11px;color:var(--muted2);letter-spacing:0.06em;min-width:28px}
+.case-info{flex:1}
+.case-client{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.06em;margin-bottom:4px}
+.case-title{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--text)}
+.case-tags{display:flex;gap:6px;flex-wrap:wrap}
+.case-tag{font-family:var(--mono);font-size:10px;padding:2px 8px;border:1px solid var(--border2);border-radius:3px;color:var(--muted)}
+.case-toggle{font-family:var(--mono);font-size:18px;color:var(--muted);transition:transform 0.2s,color 0.2s;flex-shrink:0}
+.case-card.open .case-toggle{transform:rotate(45deg);color:var(--accent)}
+
+.case-body{display:none;padding:0 32px 32px;border-top:1px solid var(--border)}
+.case-card.open .case-body{display:block}
+
+.case-section-title{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:24px 0 10px}
+.case-results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.result-card{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:16px}
+.result-val{font-family:var(--serif);font-size:24px;font-style:italic;color:var(--accent);margin-bottom:4px}
+.result-label{font-size:12px;color:var(--muted)}
+.case-text{font-size:14px;color:var(--muted);line-height:1.7}
+.case-bullets{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.case-bullets li{font-size:13px;color:var(--muted);padding-left:16px;position:relative}
+.case-bullets li::before{content:'→';position:absolute;left:0;color:var(--muted2)}
+.case-columns{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+
+/* ── AI TOOL ── */
+.tool-showcase{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.tool-showcase-label{font-family:var(--mono);font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px}
+.tool-showcase-title{font-family:var(--serif);font-size:32px;font-style:italic;color:var(--text);margin-bottom:16px;line-height:1.2}
+.tool-showcase-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+.tool-features{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.tool-feature{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted)}
+.tool-feature::before{content:'✦';color:var(--accent);font-size:10px;margin-top:3px;flex-shrink:0}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#0a0b0c;font-family:var(--mono);font-size:12px;font-weight:500;padding:10px 20px;border-radius:4px;text-decoration:none;letter-spacing:0.04em;transition:background 0.15s}
+.btn-primary:hover{background:var(--accent2)}
+.tool-preview{background:var(--bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.tool-preview-bar{background:var(--surface2);padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border)}
+.preview-dot{width:8px;height:8px;border-radius:50%}
+.tool-preview-body{padding:20px}
+.preview-field{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:8px 12px;font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:8px}
+.preview-output{background:var(--surface2);border:1px solid rgba(200,255,87,0.2);border-radius:4px;padding:12px;margin-top:12px}
+.preview-output-label{font-family:var(--mono);font-size:9px;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
+.preview-line{height:8px;background:var(--border2);border-radius:4px;margin-bottom:6px}
+.preview-line.short{width:60%}
+.preview-line.med{width:80%}
+.preview-line.accent{background:rgba(200,255,87,0.15);width:45%}
+
+/* ── CERTS ── */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px 20px;display:flex;align-items:center;gap:12px}
+.cert-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.cert-icon.meta{background:rgba(87,184,255,0.1)}
+.cert-icon.google{background:rgba(200,255,87,0.1)}
+.cert-icon.tiktok{background:rgba(255,124,92,0.1)}
+.cert-icon.ttd{background:rgba(150,100,255,0.1)}
+.cert-icon.ai{background:rgba(200,255,87,0.08)}
+.cert-name{font-size:13px;color:var(--text);line-height:1.4}
+.cert-issuer{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:2px}
+
+/* ── CONTACT ── */
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.contact-headline{font-family:var(--serif);font-size:clamp(32px,5vw,60px);font-style:italic;line-height:1.1;color:var(--text)}
+.contact-headline em{color:var(--accent)}
+.contact-links{display:flex;flex-direction:column;gap:16px}
+.contact-link{display:flex;align-items:center;gap:16px;text-decoration:none;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:6px;transition:border-color 0.15s}
+.contact-link:hover{border-color:var(--accent)}
+.contact-link-label{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px}
+.contact-link-value{font-size:14px;color:var(--text)}
+
+/* ── FOOTER ── */
+footer{padding:24px 40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.footer-copy{font-family:var(--mono);font-size:11px;color:var(--muted2)}
+.footer-built{font-family:var(--mono);font-size:11px;color:var(--muted2)}
+.footer-built span{color:var(--accent)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:0 20px 48px}
+  .hero-links{right:20px}
+  .hero-stats{flex-wrap:wrap;gap:24px}
+  section{padding:60px 20px}
+  .about-grid,.contact-inner{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:1fr 1fr}
+  .tools-grid{grid-template-columns:1fr}
+  .case-results{grid-template-columns:1fr 1fr}
+  .case-columns{grid-template-columns:1fr}
+  .tool-showcase{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:1fr 1fr}
+  .exp-item{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">VD <span>·</span> Paid Media</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Work</a>
+    <a href="#tool">AI Tool</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="mailto:vaishali.dulani26@gmail.com" class="nav-cta">Get in touch ↗</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-top:none">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+  </div>
+  <div class="hero-tag">Paid Media Strategist · Jersey City, NJ</div>
+  <h1 class="hero-name">Vaishali<br><em>Dulani</em></h1>
+  <p class="hero-title">4+ years driving performance across Meta, Google, DV360, and The Trade Desk — turning data into decisions and budgets into results.</p>
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-value">$250<span style="font-size:0.5em;color:var(--muted)">K+</span></div>
+      <div class="hero-stat-label">Monthly budget managed</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">30<span style="font-size:0.5em;color:var(--muted)">%</span></div>
+      <div class="hero-stat-label">Avg. CPA reduction</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">20<span style="font-size:0.5em;color:var(--muted)">%</span></div>
+      <div class="hero-stat-label">CTR improvement</div>
+    </div>
+  </div>
+  <div class="hero-links">
+    <a href="https://linkedin.com/in/vaishali-dulani" class="hero-link" target="_blank">LinkedIn</a>
+    <a href="mailto:vaishali.dulani26@gmail.com" class="hero-link">vaishali.dulani26@gmail.com</a>
+    <a href="tel:5513587683" class="hero-link">(551) 358-7683</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="about-headline">Strategist who speaks <em>data</em> and thinks in funnels</h2>
+    </div>
+    <div>
+      <div class="about-body">
+        <p>Paid Media Strategist with 4+ years managing $150K–$250K+ monthly budgets across paid social, search, and programmatic channels. I don't just run campaigns — I build the strategy, own the tracking, and translate performance into stories that drive decisions.</p>
+        <p>From implementing GTM and CAPI to structuring full-funnel campaigns across Meta, Google, DV360, and The Trade Desk — I operate across the full stack of paid media execution.</p>
+      </div>
+      <div class="about-chips">
+        <span class="chip">Full-funnel strategy</span>
+        <span class="chip">Audience segmentation</span>
+        <span class="chip">Conversion tracking</span>
+        <span class="chip">A/B testing</span>
+        <span class="chip">Budget pacing</span>
+        <span class="chip">Cross-channel attribution</span>
+        <span class="chip">GTM · CAPI · Floodlight</span>
+        <span class="chip">GA4 analytics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<section style="padding-top:0;border-top:none">
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-num">$250<span>K</span></div>
+      <div class="impact-desc">Monthly budgets managed across Meta, Google, DV360 & The Trade Desk</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">~25<span>%</span></div>
+      <div class="impact-desc">CPA reduction via funnel restructuring and audience optimization</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">~20<span>%</span></div>
+      <div class="impact-desc">CTR improvement through structured A/B creative testing</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">6<span>M+</span></div>
+      <div class="impact-desc">Impressions delivered at $3.08 CPM on a $26K programmatic budget</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <div class="exp-item">
+    <div class="exp-meta">
+      <div class="exp-date">May 2022 – Present</div>
+      <div class="exp-company">Electric Symphony Media</div>
+      <div class="exp-location">Hoboken, NJ</div>
+    </div>
+    <div>
+      <div class="exp-role">Product Executive</div>
+      <ul class="exp-list">
+        <li>Managed multi-channel campaigns across <strong>Meta, Google Ads, DV360, CM360, and The Trade Desk</strong>, optimizing across paid social, search, and programmatic</li>
+        <li>Reduced CPA by <strong>~25%</strong> by restructuring campaign funnels and reallocating budget toward high-performing audiences and placements</li>
+        <li>Increased CTR by <strong>20%</strong> by implementing structured A/B testing across creatives, messaging, and audience segments</li>
+        <li>Led weekly performance reviews with cross-functional teams, translating campaign data into actionable insights and optimization strategies</li>
+        <li>Developed audience strategies leveraging <strong>first-party data, lookalikes, and retargeting</strong>, improving conversion rates and campaign efficiency</li>
+        <li>Built and maintained <strong>budget pacing and forecasting frameworks</strong> to ensure delivery accuracy across multiple campaigns</li>
+        <li>Implemented and QA'd conversion tracking — <strong>GTM, Meta CAPI, Floodlight, platform pixels</strong> — to improve attribution and measurement</li>
+        <li>Conducted <strong>Google Analytics audits</strong> to identify user journey gaps and improve website conversion performance</li>
+        <li>Mentored and trained junior team members on campaign setup, optimization, and reporting best practices</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section>
+  <div class="section-label">Tools & Platforms</div>
+  <div class="tools-grid">
+    <div class="tools-cat">
+      <div class="tools-cat-label">Paid Social</div>
+      <div class="tools-items">
+        <span class="tool-tag">Meta Ads</span>
+        <span class="tool-tag">TikTok Ads</span>
+        <span class="tool-tag">LinkedIn Ads</span>
+        <span class="tool-tag">Snapchat Ads</span>
+      </div>
+    </div>
+    <div class="tools-cat">
+      <div class="tools-cat-label">Search & Programmatic</div>
+      <div class="tools-items">
+        <span class="tool-tag">Google Ads</span>
+        <span class="tool-tag">DV360</span>
+        <span class="tool-tag">CM360</span>
+        <span class="tool-tag">The Trade Desk</span>
+        <span class="tool-tag">SA360</span>
+        <span class="tool-tag">Basis</span>
+        <span class="tool-tag">LiveRamp</span>
+      </div>
+    </div>
+    <div class="tools-cat">
+      <div class="tools-cat-label">Analytics & Tracking</div>
+      <div class="tools-items">
+        <span class="tool-tag">GA4</span>
+        <span class="tool-tag">GTM</span>
+        <span class="tool-tag">Looker Studio</span>
+        <span class="tool-tag">Tableau</span>
+        <span class="tool-tag">Excel</span>
+        <span class="tool-tag">SQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="section-label">Case Studies</div>
+  <div class="case-grid">
+
+    <!-- Case 1 -->
+    <div class="case-card" onclick="toggleCase(this)">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-num">01</div>
+          <div class="case-info">
+            <div class="case-client">Brookdale Community College · Education</div>
+            <div class="case-title">Spring Enrollment Acquisition Campaign</div>
+          </div>
+          <div class="case-tags">
+            <span class="case-tag">Meta</span>
+            <span class="case-tag">Google SEM</span>
+            <span class="case-tag">Programmatic</span>
+          </div>
+        </div>
+        <div class="case-toggle">+</div>
+      </div>
+      <div class="case-body">
+        <div class="case-columns">
+          <div>
+            <div class="case-section-title">Objective</div>
+            <p class="case-text">Drive qualified leads for spring semester enrollment. Balance top-funnel awareness with bottom-funnel conversion across a competitive education landscape with high CPL.</p>
+            <div class="case-section-title">Strategy</div>
+            <ul class="case-bullets">
+              <li>Full-funnel architecture: broad interest targeting at top, retargeting at bottom</li>
+              <li>Cross-channel integration — Meta for demand gen, Display for scale, Search for high-intent capture</li>
+              <li>Lookalike audiences built from site visitors with 7–30 day retargeting windows</li>
+              <li>Creative refresh every 2–3 weeks based on CTR and engagement data</li>
+              <li>Tested program-specific vs. career-focused messaging angles</li>
+            </ul>
+          </div>
+          <div>
+            <div class="case-section-title">Results</div>
+            <div class="case-results">
+              <div class="result-card">
+                <div class="result-val">~25%</div>
+                <div class="result-label">CPL reduction via audience refinement</div>
+              </div>
+              <div class="result-card">
+                <div class="result-val">~20%</div>
+                <div class="result-label">CTR lift through creative testing</div>
+              </div>
+              <div class="result-card">
+                <div class="result-val">↑CVR</div>
+                <div class="result-label">Improved via retargeting vs. prospecting</div>
+              </div>
+            </div>
+            <div class="case-section-title">Key Takeaway</div>
+            <p class="case-text">Full-funnel strategy is critical in education. Retargeting + first-party data significantly outperforms cold audience prospecting when CPL pressure is high.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-card" onclick="toggleCase(this)">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-num">02</div>
+          <div class="case-info">
+            <div class="case-client">Arvest Bank · Financial Services</div>
+            <div class="case-title">First-Time Homebuyer Programmatic Campaign</div>
+          </div>
+          <div class="case-tags">
+            <span class="case-tag">The Trade Desk</span>
+            <span class="case-tag">LiveRamp</span>
+            <span class="case-tag">Display</span>
+          </div>
+        </div>
+        <div class="case-toggle">+</div>
+      </div>
+      <div class="case-body">
+        <div class="case-columns">
+          <div>
+            <div class="case-section-title">Objective</div>
+            <p class="case-text">Increase awareness of mortgage offerings and reach qualified first-time homebuyers at scale within a $26,000 budget, without sacrificing inventory quality.</p>
+            <div class="case-section-title">Strategy</div>
+            <ul class="case-bullets">
+              <li>Activated deterministic LiveRamp audience segments — first-time homebuyers + in-market home seekers</li>
+              <li>Whitelisted premium publishers for brand safety and contextual relevance (housing, finance content)</li>
+              <li>Prioritized in-market users over broad demographic targeting</li>
+              <li>Continuous CPM and pacing optimization to maintain efficiency at scale</li>
+            </ul>
+          </div>
+          <div>
+            <div class="case-section-title">Results</div>
+            <div class="case-results">
+              <div class="result-card">
+                <div class="result-val">6M+</div>
+                <div class="result-label">Impressions within $26K budget</div>
+              </div>
+              <div class="result-card">
+                <div class="result-val">$3.08</div>
+                <div class="result-label">Average CPM achieved</div>
+              </div>
+              <div class="result-card">
+                <div class="result-val">✓ Scale</div>
+                <div class="result-label">Premium inventory maintained throughout</div>
+              </div>
+            </div>
+            <div class="case-section-title">Key Takeaway</div>
+            <p class="case-text">Deterministic data + whitelisted inventory is a powerful combination. Cost-efficient CPM doesn't require sacrificing quality when audience strategy is precise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-card" onclick="toggleCase(this)">
+      <div class="case-header">
+        <div class="case-header-left">
+          <div class="case-num">03</div>
+          <div class="case-info">
+            <div class="case-client">Mark Christopher Auto Center · Automotive</div>
+            <div class="case-title">President's Day Dealership Branding — Meta</div>
+          </div>
+          <div class="case-tags">
+            <span class="case-tag">Meta</span>
+            <span class="case-tag">Video Creative</span>
+            <span class="case-tag">Geo Targeting</span>
+          </div>
+        </div>
+        <div class="case-toggle">+</div>
+      </div>
+      <div class="case-body">
+        <div class="case-columns">
+          <div>
+            <div class="case-section-title">Objective</div>
+            <p class="case-text">Drive brand awareness for a seasonal dealership promotion and qualified traffic to GMC Sierra and Chevrolet Silverado vehicle listing pages among California-based auto intenders.</p>
+            <div class="case-section-title">Strategy</div>
+            <ul class="case-bullets">
+              <li>ZIP code geo-targeting around dealership location in California</li>
+              <li>Interest targeting: Chevrolet, GMC, Silverado, Sierra, truck enthusiasts</li>
+              <li>Video creatives showcasing vehicles with seasonal promotional messaging</li>
+              <li>Optimized for link clicks to maximize cost-efficient traffic volume</li>
+            </ul>
+          </div>
+          <div>
+            <div class="case-section-title">Results</div>
+            <div class="case-results">
+              <div class="result-card">
+                <div class="result-val">2M+</div>
+                <div class="result-label">Impressions, 71K users reached</div>
+              </div>
+              <div class="result-card">
+                <div class="result-val">1.19%</div>
+                <div class="result-label">CTR with 2,500+ link clicks</div>
+              </div>
+              <div class="result-card">
+                <div class="result-val">$0.33</div>
+                <div class="result-label">CPC — cost-efficient traffic acquisition</div>
+              </div>
+            </div>
+            <div class="case-section-title">Key Takeaway</div>
+            <p class="case-text">Video + localized geo targeting is highly effective for automotive. Seasonal promotion messaging amplifies click-through and engagement significantly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AI TOOL -->
+<section id="tool">
+  <div class="section-label">AI Tool · Built by Vaishali</div>
+  <div class="tool-showcase">
+    <div>
+      <div class="tool-showcase-label">Live project</div>
+      <h2 class="tool-showcase-title">Campaign Insight Generator</h2>
+      <p class="tool-showcase-desc">An AI-powered tool built with the Claude API that turns raw campaign metrics into analyst-grade insights, anomaly flags, and prioritised optimization actions — in seconds.</p>
+      <div class="tool-features">
+        <div class="tool-feature">Supports Meta, Google, DV360, TikTok, LinkedIn campaigns</div>
+        <div class="tool-feature">Returns typed insights: actions, alerts, opportunities</div>
+        <div class="tool-feature">Generates P1/P2/P3 prioritised recommendations</div>
+        <div class="tool-feature">Built with vanilla HTML, JS, and Anthropic's Claude API</div>
+      </div>
+      <a href="https://vdulani1.github.io/Campaign-Insight-Tool/" class="btn-primary" target="_blank">Try the live tool ↗</a>
+    </div>
+    <div>
+      <div class="tool-preview">
+        <div class="tool-preview-bar">
+          <div class="preview-dot" style="background:#ff5f57"></div>
+          <div class="preview-dot" style="background:#febc2e"></div>
+          <div class="preview-dot" style="background:#28c840"></div>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-left:8px">campaign-insight-generator</span>
+        </div>
+        <div class="tool-preview-body">
+          <div class="preview-field">Platform: Meta Ads · Objective: Conversions</div>
+          <div class="preview-field">Spend: $12,400 · CPA: $36.25 · ROAS: 3.8x</div>
+          <div class="preview-output">
+            <div class="preview-output-label">↳ AI Analysis</div>
+            <div class="preview-line accent"></div>
+            <div class="preview-line med"></div>
+            <div class="preview-line short"></div>
+            <div class="preview-line med"></div>
+            <div class="preview-line short"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+  <div class="section-label">Certifications</div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon meta">📘</div>
+      <div>
+        <div class="cert-name">Meta Certified Media Buying</div>
+        <div class="cert-issuer">Meta · Media Planning</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon google">🔍</div>
+      <div>
+        <div class="cert-name">Google Ads — Search, Display, Video</div>
+        <div class="cert-issuer">Google</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon google">📊</div>
+      <div>
+        <div class="cert-name">Google Analytics 4</div>
+        <div class="cert-issuer">Google</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon tiktok">🎵</div>
+      <div>
+        <div class="cert-name">TikTok Media Buying</div>
+        <div class="cert-issuer">TikTok for Business</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ttd">📡</div>
+      <div>
+        <div class="cert-name">Data Driven Planning</div>
+        <div class="cert-issuer">The Trade Desk</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ai">🤖</div>
+      <div>
+        <div class="cert-name">Generative AI for Everyone</div>
+        <div class="cert-issuer">DeepLearning.AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-inner">
+    <h2 class="contact-headline">Let's build something that <em>performs.</em></h2>
+    <div class="contact-links">
+      <a href="mailto:vaishali.dulani26@gmail.com" class="contact-link">
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">vaishali.dulani26@gmail.com</div>
+        </div>
+      </a>
+      <a href="tel:5513587683" class="contact-link">
+        <div>
+          <div class="contact-link-label">Phone</div>
+          <div class="contact-link-value">(551) 358-7683</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/vaishali-dulani" class="contact-link" target="_blank">
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">linkedin.com/in/vaishali-dulani</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Vaishali Dulani · Jersey City, NJ</div>
+  <div class="footer-built">Built with <span>Claude AI</span></div>
+</footer>
+
+<script>
+function toggleCase(card) {
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.case-card').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.impact-card, .exp-item, .tools-cat, .case-card, .cert-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
